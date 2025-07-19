@@ -1,0 +1,19 @@
+<!-- frontend/menu_manager.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Manage Menu Items</h2>
+    <form action="../backend/add_menu.php" method="POST">
+        <label>Name: <input type="text" name="name" required></label><br>
+        <label>Price: <input type="number" name="price" step="0.01" required></label><br>
+        <label>Category: <input type="text" name="category"></label><br>
+        <label>Description:<br><textarea name="description"></textarea></label><br>
+        <button type="submit">Add Menu Item</button>
+    </form>
+</body>
+</html>
