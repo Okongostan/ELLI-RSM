@@ -1,26 +1,24 @@
 # Ellie Restaurant Management System (ERMS)
 
-The **Ellie Restaurant Management System (ERMS)** is a web-based application designed to streamline restaurant operations such as order management, menu management, and reporting. Built using HTML, CSS, JavaScript, PHP, and MySQL.
+A full-stack web-based system to manage restaurant operations including menu handling, staff orders, and reporting. This project uses:
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Java Spring Boot
+- **Database**: MySQL
 
 ---
 
 ## 📁 Project Structure
 ```
-ERMS/
-├── frontend/         # User interfaces (HTML/CSS)
+erms/
+├── frontend/
 │   ├── login.html
 │   ├── dashboard.html
 │   ├── menu_manager.html
 │   ├── order_interface.html
 │   └── styles.css
-├── backend/          # Backend logic (PHP)
-│   ├── db.php
-│   ├── login.php
-│   ├── logout.php
-│   ├── auth_check.php
-│   ├── add_menu.php
-│   ├── place_order.php
-├── database/         # Database schema
+├── backend-java/
+│   └── src/main/java/com/erms/... (controllers, models, repos)
+├── database/
 │   └── erms_schema.sql
 ├── README.md
 ```
@@ -28,64 +26,61 @@ ERMS/
 ---
 
 ## 🚀 Features
-- **User Authentication**: Secure login for staff/admin
-- **Menu Management**: Add and manage food items
-- **Order Interface**: Staff can place and process orders
-- **Role Management**: Admins manage menus; staff place orders
-- **Activity Logging**: Track user actions (via `activity_logs`)
+- Login for staff/admin via Spring Boot API
+- Manage menu items (add/edit/delete)
+- Place and track orders
+- View recent activity on dashboard
 
 ---
 
-## 🛠️ Tech Stack
-- **Frontend**: HTML, CSS (Vanilla, Bootstrap ready)
-- **Backend**: PHP
-- **Database**: MySQL
-- **Version Control**: Git / GitHub
+## 🧰 Technologies Used
+- Java 17 + Spring Boot
+- MySQL 8+
+- HTML/CSS/JS (Vanilla)
+- Git + GitHub
 
 ---
 
-## 🧱 Installation & Setup
-1. **Clone the repository**
+## 🛠️ Setup Instructions
+
+### 🗃️ Database Setup
+1. Install MySQL
+2. Run the SQL file in `database/erms_schema.sql`
+
+### 🖥️ Backend Setup (Java)
 ```bash
-git clone https://github.com/yourusername/erms.git
-cd erms
+cd backend-java
+./mvnw spring-boot:run
 ```
-2. **Import the Database**
-   - Open `phpMyAdmin`
-   - Create a new database named `erms`
-   - Import `database/erms_schema.sql`
+Then visit: `http://localhost:8080`
 
-3. **Configure Database**
-   - Edit `backend/db.php` if needed:
-```php
-$host = 'localhost';
-$dbname = 'erms';
-$user = 'root';
-$pass = '';
-```
+### 🌐 Frontend Setup
+Just open `frontend/login.html` in your browser.
 
-4. **Run the Application**
-   - Open `frontend/login.html` in a browser
-   - Log in with credentials stored in the `users` table
+Or serve all with Live Server / Apache.
 
 ---
 
-## 🔐 Default Admin Login
-- **Username**: `admin`
-- **Password**: `admin@123` _(store as hashed in production)_
+## 🔌 API Endpoints
+| Endpoint                  | Method | Description                     |
+|--------------------------|--------|---------------------------------|
+| `/api/auth/login`        | POST   | Login user                     |
+| `/api/menu`              | GET    | List menu items                |
+| `/api/menu`              | POST   | Add menu item                  |
+| `/api/orders`            | GET    | List all orders                |
+| `/api/orders`            | POST   | Place a new order              |
+| `/api/orders/{id}/status`| PUT    | Update status of an order      |
 
 ---
 
-## 🧪 Testing Checklist
-- [x] User login/logout
-- [x] Add/edit menu items
-- [x] Place orders
-- [x] Navigation flows
+## 🔐 Default Credentials
+- **Admin:** `admin / admin@123`
 
 ---
 
-## 🤝 Contributions
-Feel free to fork and contribute by submitting pull requests.
+## 📦 Deployment Notes
+- Frontend can be hosted via GitHub Pages (static)
+- Backend can be deployed on Render / Railway / Heroku (Java + MySQL)
 
 ---
 
@@ -94,5 +89,4 @@ MIT License
 
 ---
 
-**Author:** [Your Name]  
-**Date:** July 2025
+> Developed for Ellie Restaurant – July 2025
